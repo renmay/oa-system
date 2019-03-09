@@ -2,38 +2,109 @@
 
 import Layout from '@/views/layout/Layout'
 
-const nestedRouter = {
-  path: '/nested',
+const officeRouter = {
+  path: '/office',
   component: Layout,
-  redirect: '/nested/menu1/menu1-1',
-  name: 'Nested',
+  redirect: '/office/message',
+  name: 'Office',
   meta: {
-    title: 'nested',
-    icon: 'nested'
+    title: '个人办公',
+    icon: 'table'
   },
   children: [
     {
-      path: 'menu1',
-      component: () => import('@/views/nested/menu1/index'), // Parent router-view
-      name: 'Menu1',
-      meta: { title: 'menu1' },
-      redirect: '/nested/menu1/menu1-1',
+      path: 'message',
+      component: () => import('@/views/office/message'),
+      name: 'Message',
+      meta: { title: '消息' }
+    },
+    {
+      path: 'schedule',
+      component: () => import('@/views/office/schedule'),
+      name: 'Schedule',
+      meta: { title: '日程安排' }
+    },
+    {
+      path: 'communication',
+      component: () => import('@/views/office/communication'),
+      name: 'Communication',
+      meta: { title: '即时沟通' }
+    },
+    {
+      path: 'email',
+      component: () => import('@/views/office/email/index'), // Parent router-view
+      name: 'Email',
+      meta: { title: '内部邮件' },
+      redirect: '/office/email',
       children: [
         {
-          path: 'menu1-1',
-          component: () => import('@/views/nested/menu1/menu1-1'),
-          name: 'Menu1-1',
-          meta: { title: 'menu1-1' }
+          path: 'write',
+          component: () => import('@/views/office/email/write'),
+          name: 'write',
+          meta: { title: '写信' }
+        },
+        {
+          path: 'inbox',
+          component: () => import('@/views/office/email/inbox'),
+          name: 'Inbox',
+          meta: { title: '收件箱' }
+        },
+        {
+          path: 'outbox',
+          component: () => import('@/views/office/email/outbox'),
+          name: 'Outbox',
+          meta: { title: '发件箱' }
+        },
+        {
+          path: 'drafts',
+          component: () => import('@/views/office/email/drafts'),
+          name: 'Drafts',
+          meta: { title: '草稿箱' }
         }
       ]
     },
     {
-      path: 'menu2',
-      name: 'Menu2',
-      component: () => import('@/views/nested/menu2/index'),
-      meta: { title: 'menu2' }
+      path: 'address',
+      component: () => import('@/views/office/address/index'), // Parent router-view
+      name: 'address',
+      meta: { title: '通讯录' },
+      redirect: '/office/address/person',
+      children: [
+        {
+          path: 'person',
+          component: () => import('@/views/office/address/person'),
+          name: 'Person',
+          meta: { title: '个人通讯录' }
+        },
+        {
+          path: 'company',
+          component: () => import('@/views/office/address/company'),
+          name: 'Company',
+          meta: { title: '公司通讯录' }
+        }
+      ]
+    },
+    {
+      path: 'setting',
+      component: () => import('@/views/office/setting/index'), // Parent router-view
+      name: 'Setting',
+      meta: { title: '个人设置' },
+      redirect: '/office/setting/person',
+      children: [
+        {
+          path: 'person',
+          component: () => import('@/views/office/setting/person'),
+          name: 'Person',
+          meta: { title: '个人信息' }
+        },
+        {
+          path: 'edit',
+          component: () => import('@/views/office/setting/edit'),
+          name: 'Edit',
+          meta: { title: '修改密码' }
+        }
+      ]
     }
   ]
 }
-
-export default nestedRouter
+export default officeRouter

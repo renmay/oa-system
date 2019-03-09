@@ -9,22 +9,25 @@ import Layout from '@/views/layout/Layout'
 /* Router Modules */
 import componentsRouter from './modules/components'
 // import chartsRouter from './modules/charts'
-// import tableRouter from './modules/table'
-import officeRouter from './modules/oldoffice'
-import nestedRouter from './modules/nested'
+import tableRouter from './modules/table'
+// import nestedRouter from './modules/nested'
+import officeRouter from './modules/office'
+import meetingRouter from './modules/meeting'
+import voteRouter from './modules/vote'
+import notifyRouter from './modules/notify'
 
 /** note: sub-menu only appear when children.length>=1
  *  detail see  https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
  **/
 
 /**
-* hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
-* alwaysShow: true               if set true, will always show the root menu, whatever its child routes length
-*                                if not set alwaysShow, only more than one route under the children
-*                                it will becomes nested mode, otherwise not show the root menu
-* redirect: noredirect           if `redirect:noredirect` will no redirect in the breadcrumb
-* name:'router-name'             the name is used by <keep-alive> (must set!!!)
-* meta : {
+ * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
+ * alwaysShow: true               if set true, will always show the root menu, whatever its child routes length
+ *                                if not set alwaysShow, only more than one route under the children
+ *                                it will becomes nested mode, otherwise not show the root menu
+ * redirect: noredirect           if `redirect:noredirect` will no redirect in the breadcrumb
+ * name:'router-name'             the name is used by <keep-alive> (must set!!!)
+ * meta : {
     roles: ['admin','editor']    will control the page roles (you can set multiple roles)
     title: 'title'               the name show in sub-menu and breadcrumb (recommend set)
     icon: 'svg-name'             the icon show in the sidebar
@@ -32,7 +35,7 @@ import nestedRouter from './modules/nested'
     breadcrumb: false            if false, the item will hidden in breadcrumb(default is true)
     affix: true                  if true, the tag will affix in the tags-view
   }
-**/
+ **/
 export const constantRouterMap = [
   {
     path: '/redirect',
@@ -161,10 +164,12 @@ export const asyncRouterMap = [
   /** When your routing table is too long, you can split it into small modules**/
   componentsRouter,
   // chartsRouter,
-  nestedRouter,
+  // nestedRouter,
+  tableRouter,
   officeRouter,
-  // tableRouter,
-
+  meetingRouter,
+  voteRouter,
+  notifyRouter,
   {
     path: '/example',
     component: Layout,
@@ -197,18 +202,18 @@ export const asyncRouterMap = [
     ]
   },
 
-  {
-    path: '/tab',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/tab/index'),
-        name: 'Tab',
-        meta: { title: 'tab', icon: 'tab' }
-      }
-    ]
-  },
+  // {
+  //   path: '/tab',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/tab/index'),
+  //       name: 'Tab',
+  //       meta: { title: 'tab', icon: 'tab' }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/error',

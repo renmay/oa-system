@@ -66,7 +66,10 @@ export default {
     externalLink: '外链',
     message: '消息',
     address: '通讯录地址',
-    email: '邮件'
+    communication: '即实沟通',
+    schedule: '日程',
+    email: '邮件',
+    write: '写信'
   },
   navbar: {
     logOut: '退出登录',
