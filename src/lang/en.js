@@ -66,15 +66,15 @@ export default {
     externalLink: 'External Link'
   },
   navbar: {
-    logOut: 'Log Out',
-    dashboard: 'Dashboard',
+    logOut: '退出登录',
+    dashboard: '首页',
     github: 'Github',
-    theme: 'Theme',
-    size: 'Global Size'
+    theme: '主页',
+    size: '全局字体大小'
   },
   login: {
-    title: 'Login Form',
-    logIn: 'Log in',
+    title: '登录',
+    logIn: '登录',
     username: 'Username',
     password: 'Password',
     any: 'any',

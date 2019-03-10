@@ -20,21 +20,21 @@ const meetingRouter = {
     },
     {
       path: 'meeting',
-      component: () => import('@/views/meeting/manage/index'), // Parent router-view
+      component: () => import('@/views/meeting/manage/list'), // Parent router-view
       name: 'meeting',
       meta: { title: '会议管理' },
       redirect: '/meeting/address/person',
       children: [
         {
-          path: 'index',
-          component: () => import('@/views/meeting/manage/index'),
-          name: 'Index',
+          path: 'manage-list',
+          component: () => import('@/views/meeting/manage/list'),
+          name: 'ManageList',
           meta: { title: '会议管理' }
         },
         {
-          path: 'meeting-room',
+          path: 'manage-meeting-room',
           component: () => import('@/views/meeting/manage/meeting-room'),
-          name: 'MeetingRoom',
+          name: 'ManageMeetingRoom',
           meta: { title: '会议室管理' }
         }
       ]

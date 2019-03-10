@@ -13,9 +13,9 @@ const notifyRouter = {
   },
   children: [
     {
-      path: 'list',
+      path: 'notify-list',
       component: () => import('@/views/notify/list'),
-      name: 'List',
+      name: 'NotifyList',
       meta: { title: '通知' }
     },
     {

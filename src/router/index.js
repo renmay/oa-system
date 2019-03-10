@@ -7,14 +7,18 @@ Vue.use(Router)
 import Layout from '@/views/layout/Layout'
 
 /* Router Modules */
-import componentsRouter from './modules/components'
 // import chartsRouter from './modules/charts'
-import tableRouter from './modules/table'
+// import tableRouter from './modules/table'
 // import nestedRouter from './modules/nested'
 import officeRouter from './modules/office'
 import meetingRouter from './modules/meeting'
 import voteRouter from './modules/vote'
 import notifyRouter from './modules/notify'
+import announcementRouter from './modules/announcement'
+import newsRouter from './modules/news'
+import infoRouter from './modules/info'
+
+import componentsRouter from './modules/components'
 
 /** note: sub-menu only appear when children.length>=1
  *  detail see  https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -77,7 +81,7 @@ export const constantRouterMap = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
+        meta: { title: '首页', icon: 'dashboard', noCache: true, affix: true }
       }
     ]
   }
@@ -148,28 +152,18 @@ export const asyncRouterMap = [
   //   ]
   // },
 
-  {
-    path: '/icon',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/svg-icons/index'),
-        name: 'Icons',
-        meta: { title: 'icons', icon: 'icon', noCache: true }
-      }
-    ]
-  },
-
   /** When your routing table is too long, you can split it into small modules**/
-  componentsRouter,
   // chartsRouter,
   // nestedRouter,
-  tableRouter,
+  // tableRouter,
   officeRouter,
   meetingRouter,
   voteRouter,
   notifyRouter,
+  announcementRouter,
+  newsRouter,
+  infoRouter,
+  componentsRouter,
   {
     path: '/example',
     component: Layout,
@@ -214,31 +208,6 @@ export const asyncRouterMap = [
   //     }
   //   ]
   // },
-
-  {
-    path: '/error',
-    component: Layout,
-    redirect: 'noredirect',
-    name: 'ErrorPages',
-    meta: {
-      title: 'errorPages',
-      icon: '404'
-    },
-    children: [
-      {
-        path: '401',
-        component: () => import('@/views/errorPage/401'),
-        name: 'Page401',
-        meta: { title: 'page401', noCache: true }
-      },
-      {
-        path: '404',
-        component: () => import('@/views/errorPage/404'),
-        name: 'Page404',
-        meta: { title: 'page404', noCache: true }
-      }
-    ]
-  },
 
   // {
   //   path: '/error-log',
@@ -360,14 +329,25 @@ export const asyncRouterMap = [
   //     }
   //   ]
   // },
-
+  {
+    path: '/icon',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/svg-icons/index'),
+        name: 'Icons',
+        meta: { title: 'icons', icon: 'icon', noCache: true }
+      }
+    ]
+  },
   {
     path: 'external-link',
     component: Layout,
     children: [
       {
         path: 'https://github.com/PanJiaChen/vue-element-admin',
-        meta: { title: 'externalLink', icon: 'link' }
+        meta: { title: '流程设计器', icon: 'link' }
       }
     ]
   },

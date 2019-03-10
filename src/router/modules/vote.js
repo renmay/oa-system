@@ -13,9 +13,9 @@ const voteRouter = {
   },
   children: [
     {
-      path: 'list',
+      path: 'vote-list',
       component: () => import('@/views/vote/list'),
-      name: 'List',
+      name: 'VoteList',
       meta: { title: '投票' }
     },
     {
